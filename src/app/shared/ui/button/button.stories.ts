@@ -1,21 +1,21 @@
 import { Story, Meta } from '@storybook/angular'
-import { ButtonComponent } from './button.component'
+import { TngButtonDirective } from '../directives/tng-button.directive'
 
 export default {
   title: 'Example/Button',
-  component: ButtonComponent,
+  component: TngButtonDirective,
   argTypes: {
     backgroundColor: { control: 'color' },
   },
 } as Meta
 
-const Template: Story<ButtonComponent> = (args: ButtonComponent) => ({
-  template: `<afb-button>Click me!</afb-button>`,
-  styles: [`padding: 2rem;`],
+const Template: Story<TngButtonDirective> = (args: TngButtonDirective) => ({
+  template: `<button tngButton>Click me!</button>`,
+  styles: [`:host {padding: 2rem; display: block}`],
   props: args,
 })
 
 export const Primary = Template.bind({})
 Primary.args = {
-  backgroundColor: '#456547',
+  backgroundColor: '#956548',
 }

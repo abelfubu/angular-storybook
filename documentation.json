@@ -5,11 +5,124 @@
     "guards": [],
     "interceptors": [],
     "classes": [],
-    "directives": [],
+    "directives": [
+        {
+            "name": "TngButtonDirective",
+            "id": "directive-TngButtonDirective-2de5aabeefc4262b8cc5c8b628abb230",
+            "file": "src/app/shared/ui/directives/tng-button.directive.ts",
+            "type": "directive",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { Directive, ElementRef, Input, OnChanges, OnInit, Renderer2 } from '@angular/core'\n\n@Directive({\n  selector: '[tngButton]',\n})\nexport class TngButtonDirective implements OnInit, OnChanges {\n  @Input() backgroundColor = '#082098'\n  constructor(\n    private readonly el: ElementRef<HTMLButtonElement>,\n    private readonly renderer: Renderer2,\n  ) {}\n\n  ngOnInit(): void {\n    this.renderer.addClass(this.el.nativeElement, 'tng-button')\n    this.renderer.setStyle(this.el.nativeElement, 'background-color', this.backgroundColor)\n  }\n\n  ngOnChanges(change: unknown): void {\n    this.renderer.setStyle(this.el.nativeElement, 'background-color', this.backgroundColor)\n  }\n}\n",
+            "selector": "[tngButton]",
+            "providers": [],
+            "inputsClass": [
+                {
+                    "name": "backgroundColor",
+                    "defaultValue": "'#082098'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 7,
+                    "type": "string"
+                }
+            ],
+            "outputsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnChanges",
+                    "args": [
+                        {
+                            "name": "change",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 18,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "change",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 13,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "implements": [
+                "OnInit",
+                "OnChanges"
+            ],
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "el",
+                        "type": "ElementRef<HTMLButtonElement>",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "renderer",
+                        "type": "Renderer2",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 7,
+                "jsdoctags": [
+                    {
+                        "name": "el",
+                        "type": "ElementRef<HTMLButtonElement>",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "renderer",
+                        "type": "Renderer2",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        }
+    ],
     "components": [
         {
             "name": "AppComponent",
-            "id": "component-AppComponent-8d3ca8fc591d02fc565aa30f2bb8cfe4",
+            "id": "component-AppComponent-c1f7ffefdf8cdea3e5c1e64755871d36",
             "file": "src/app/app.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -47,7 +160,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'afb-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.scss']\n})\nexport class AppComponent {\n  title = 'angular-storybook';\n}\n",
+            "sourceCode": "import { Component } from '@angular/core'\n\n@Component({\n  selector: 'afb-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.scss'],\n})\nexport class AppComponent {\n  title = 'angular-storybook'\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -277,13 +390,13 @@
     "modules": [
         {
             "name": "AppModule",
-            "id": "module-AppModule-6e1dc02228bced5dc1339b56300ef384",
+            "id": "module-AppModule-0574d7984944ecf7051d0343374b46a3",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/app/app.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { BrowserModule } from '@angular/platform-browser';\n\nimport { AppRoutingModule } from './app-routing.module';\nimport { AppComponent } from './app.component';\nimport { ButtonComponent } from './shared/ui/button/button.component';\n\n@NgModule({\n  declarations: [\n    AppComponent,\n    ButtonComponent\n  ],\n  imports: [\n    BrowserModule,\n    AppRoutingModule\n  ],\n  providers: [],\n  bootstrap: [AppComponent]\n})\nexport class AppModule { }\n",
+            "sourceCode": "import { NgModule } from '@angular/core'\nimport { BrowserModule } from '@angular/platform-browser'\n\nimport { AppRoutingModule } from './app-routing.module'\nimport { AppComponent } from './app.component'\nimport { ButtonComponent } from './shared/ui/button/button.component';\nimport { TngButtonDirective } from './shared/ui/directives/tng-button.directive'\n\n@NgModule({\n  declarations: [AppComponent, ButtonComponent, TngButtonDirective],\n  imports: [BrowserModule, AppRoutingModule],\n  providers: [],\n  bootstrap: [AppComponent],\n})\nexport class AppModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -297,6 +410,9 @@
                         },
                         {
                             "name": "ButtonComponent"
+                        },
+                        {
+                            "name": "TngButtonDirective"
                         }
                     ]
                 },
@@ -481,8 +597,8 @@
                 "file": "src/app/shared/ui/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Story<ButtonComponent>",
-                "defaultValue": "(args: ButtonComponent) => ({\r\n  template: `<afb-button>Click me!</afb-button>`,\r\n  props: args,\r\n})"
+                "type": "Story<TngButtonDirective>",
+                "defaultValue": "(args: TngButtonDirective) => ({\r\n  template: `<button tngButton>Click me!</button>`,\r\n  styles: [`:host {padding: 2rem; display: block}`],\r\n  props: args,\r\n})"
             }
         ],
         "functions": [],
@@ -616,8 +732,8 @@
                     "file": "src/app/shared/ui/button/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Story<ButtonComponent>",
-                    "defaultValue": "(args: ButtonComponent) => ({\r\n  template: `<afb-button>Click me!</afb-button>`,\r\n  props: args,\r\n})"
+                    "type": "Story<TngButtonDirective>",
+                    "defaultValue": "(args: TngButtonDirective) => ({\r\n  template: `<button tngButton>Click me!</button>`,\r\n  styles: [`:host {padding: 2rem; display: block}`],\r\n  props: args,\r\n})"
                 }
             ]
         },
@@ -679,6 +795,15 @@
                 "name": "Template",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/shared/ui/directives/tng-button.directive.ts",
+                "type": "directive",
+                "linktype": "directive",
+                "name": "TngButtonDirective",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
                 "status": "low"
             },
             {
